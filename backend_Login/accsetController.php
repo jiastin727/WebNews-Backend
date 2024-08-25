@@ -23,7 +23,7 @@ class accsetController
         $gender = trim($_POST['gender']);
         $phone_number = trim($_POST['phone_number']);
         $email = ($_POST['email']);
-       
+
 
         if ($first_name) {
             if ($last_name) {
@@ -36,15 +36,13 @@ class accsetController
                                         $InsertNewUser = "INSERT INTO `profile`(`first_name`, `last_name`, `birth_date`, `place_of_birth`, `address`, `gender`, `phone_number`, `email`) VALUES ('$first_name','$last_name','$birth_date','$place_of_birth','$address','$gender','$phone_number','$email')";
                                         $res_insert = $con->query($InsertNewUser);
                                         //var_dump($InsertNewUser);
-                                        if($res_insert){
-                                        $sts=true;
-                                        $msg="Berhasil";}
-
-                                        else{
-                                            $sts=false;
-                                            $msg="Failed to register";
+                                        if ($res_insert) {
+                                            $sts = true;
+                                            $msg = "Berhasil";
+                                        } else {
+                                            $sts = false;
+                                            $msg = "Failed to register";
                                         }
-                                        
                                     } else {
                                         $sts = false;
                                         $msg = "Email cant be empty";
@@ -59,24 +57,23 @@ class accsetController
                             }
                         } else {
                             $sts = false;
-                            $msg="Address must be filled";
+                            $msg = "Address must be filled";
                         }
+                    } else {
+                        $sts = false;
+                        $msg = "Place of birth must be filled";
                     }
-                    else{
-                        $sts=false;
-                        $msg="Place of birth must be filled";
-                    }
-                }else{
-                    $sts=false;
-                    $msg="Birth date must be filled";
+                } else {
+                    $sts = false;
+                    $msg = "Birth date must be filled";
                 }
-            }else{
-                $sts=false;
-                $msg="Last name must be filled";
+            } else {
+                $sts = false;
+                $msg = "Last name must be filled";
             }
-        }else{
-        $sts=false;
-        $msg="First name must be filled";
+        } else {
+            $sts = false;
+            $msg = "First name must be filled";
         }
         $arr = array(
             "status" => $sts,
