@@ -13,9 +13,8 @@ require 'addnewsController.php';
 
 
 $server = new \Jacwright\RestServer\RestServer('debug');
-
-$server->addClass('accsetController');
 $server->addClass('RegistController');
+$server->addClass('accsetController');
 $server->addClass('addnewsController');
 // $server->addClass('RoleController');
 // $server->addClass('UserController');

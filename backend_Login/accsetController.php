@@ -10,9 +10,9 @@ class accsetController
      * Logs in a user with the given username and password POSTed. Though true
      * REST doesn't believe in sessions, it is often desirable for an AJAX server.
      *
-     * @url POST /submit
+     * @url POST /submitprofile
      */
-    public function submit()
+    public function submitprofile()
     {
         $con = new Connection;
         $first_name = trim($_POST['first_name']);
@@ -23,7 +23,7 @@ class accsetController
         $gender = trim($_POST['gender']);
         $phone_number = trim($_POST['phone_number']);
         $email = ($_POST['email']);
-
+        $id=
 
         if ($first_name) {
             if ($last_name) {
@@ -33,7 +33,8 @@ class accsetController
                             if ($gender) {
                                 if ($phone_number) {
                                     if ($email) {
-                                        $InsertNewUser = "INSERT INTO `profile`(`first_name`, `last_name`, `birth_date`, `place_of_birth`, `address`, `gender`, `phone_number`, `email`) VALUES ('$first_name','$last_name','$birth_date','$place_of_birth','$address','$gender','$phone_number','$email')";
+                                        
+                                        $InsertNewUser = "INSERT INTO `profile`(`id_register`,`first_name`, `last_name`, `birth_date`, `place_of_birth`, `address`, `gender`, `phone_number`, `email`) VALUES ('$id','$first_name','$last_name','$birth_date','$place_of_birth','$address','$gender','$phone_number','$email')";
                                         $res_insert = $con->query($InsertNewUser);
                                         //var_dump($InsertNewUser);
                                         if ($res_insert) {
@@ -82,3 +83,11 @@ class accsetController
         return $arr;
     }
 }
+
+    /**
+* Logs in a user with the given username and password POSTed. Though true
+* REST doesn't believe in sessions, it is often desirable for an AJAX server.
+*
+* @url POST /login
+*/
+
